@@ -55,6 +55,7 @@
             </div>
         </form>
         <script>
+
             const text=document.querySelector("#text");
             const textError=document.querySelector(".text-error");
             text.addEventListener('input',function(){
@@ -63,6 +64,16 @@
                     textError.textContent="";
                 else textError.textContent="Name is incorrect";
             });
+            
+            const email=document.querySelector("#email");
+            const emailError=document.querySelector(".email-error");
+            email.addEventListener('input',function(){
+            let emailRegex=RegExp('^[0-9a-z]+[+_.-]?[0-9a-z]+[@][0-9a-z]+[.][a-z]{2,}[.]?[a-z]+$');
+            if(emailRegex.test(email.value))
+                emailError.textContent="";
+            else emailError.textContent="Email is incorrect";
+            });
+            
             const salary=document.querySelector("#salary");
             const output=document.querySelector(".salary-output");
             output.textContent=salary.value;
